@@ -7,11 +7,13 @@ import java.util.List;
 public class Hr implements Profile {
 
    public static final String HR = "hr";
-   
-   private final String name;
 
-   Hr(String name) {
+   private final String name;
+   private final int index;
+
+   Hr(String name, int index) {
       this.name = name;
+      this.index = index;
    }
 
    @Override

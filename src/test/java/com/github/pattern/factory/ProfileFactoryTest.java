@@ -18,8 +18,8 @@ public class ProfileFactoryTest {
    @ParameterizedTest(name = "[{index}] {0} is instance of {1}")
    @MethodSource("provider")
    public void shouldReturnValidProfile(String profile, Class<Profile> expected) {
-      assertThat(ProfileFactory.create(profile, "foo")).isNotNull();
-      assertThat(ProfileFactory.create(profile, "foo")).isInstanceOf(expected);
+      assertThat(ProfileFactory.create(profile, "foo", 0)).isNotNull();
+      assertThat(ProfileFactory.create(profile, "foo", 0)).isInstanceOf(expected);
    }
 
    private static Stream<Arguments> provider() {
