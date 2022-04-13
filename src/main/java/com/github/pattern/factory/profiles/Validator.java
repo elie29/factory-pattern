@@ -6,10 +6,16 @@ import java.util.List;
 
 public class Validator implements Profile {
 
-    public static final String VALIDATOR = "validator";
+   public static final String VALIDATOR = "validator";
 
-    @Override
-    public List<Item> generate() {
-        return List.of(new Item());
-    }
+   private final String name;
+
+   Validator(String name) {
+      this.name = name;
+   }
+    
+   @Override
+   public List<Item> generate() {
+      return List.of(new Item());
+   }
 }

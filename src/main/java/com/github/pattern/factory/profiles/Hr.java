@@ -7,6 +7,12 @@ import java.util.List;
 public class Hr implements Profile {
 
    public static final String HR = "hr";
+   
+   private final String name;
+
+   Hr(String name) {
+      this.name = name;
+   }
 
    @Override
    public List<Item> generate() {

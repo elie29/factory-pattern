@@ -7,9 +7,15 @@ import java.util.List;
 public class Admin implements Profile {
 
    public static final String ADMIN = "admin";
+   
+   private final String name;
+
+   Admin(String name) {
+      this.name = name;
+   }
 
    @Override
-    public List<Item> generate() {
-        return List.of(new Item());
-    }
+   public List<Item> generate() {
+      return List.of(new Item());
+   }
 }

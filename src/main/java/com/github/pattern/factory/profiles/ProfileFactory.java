@@ -2,7 +2,7 @@ package com.github.pattern.factory.profiles;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Supplier;
+import java.util.function.Function;
 
 import static com.github.pattern.factory.profiles.Admin.ADMIN;
 import static com.github.pattern.factory.profiles.Hr.HR;
@@ -11,7 +11,7 @@ import static com.github.pattern.factory.profiles.Validator.VALIDATOR;
 
 public class ProfileFactory {
 
-   private final static Map<String, Supplier<Profile>> profiles = new HashMap<>();
+   private final static Map<String, Function<String, Profile>> profiles = new HashMap<>();
 
    static {
       profiles.put(ADMIN, Admin::new);
@@ -20,11 +20,11 @@ public class ProfileFactory {
       profiles.put(VALIDATOR, Validator::new);
    }
 
-   public static Profile create(String profile) {
+   public static Profile create(String profile, String name) {
       if (profiles.containsKey(profile)) {
-         return profiles.get(profile).get();
+         return profiles.get(profile).apply(name);
       }
-      return new Anonymous();
+      return new Anonymous(name);
    }
 
 }

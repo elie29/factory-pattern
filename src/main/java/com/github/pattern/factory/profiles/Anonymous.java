@@ -6,6 +6,12 @@ import java.util.List;
 
 public class Anonymous implements Profile {
 
+   private final String name;
+
+   Anonymous(String name) {
+      this.name = name;
+   }
+
    @Override
    public List<Item> generate() {
       return List.of(new Item());
